@@ -1,0 +1,4 @@
+asgan_env/
+data/
+checkpoints/
+**/__pycache__/
