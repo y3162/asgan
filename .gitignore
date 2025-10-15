@@ -1,4 +1,5 @@
 asgan_env/
 data/
+splits/
 checkpoints/
 **/__pycache__/

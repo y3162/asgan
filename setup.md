@@ -27,9 +27,12 @@ import torchaudio
 ## 📊前処理
 ```
 $ export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
-$ python 01_extract_hubert_features.py \
+$ python extract_hubert_features.py \
   --dataset-path=/path/to/dataset \
   --output-path=./data/
+$ python split_data.py \
+  --root_path=/path/to/dataset \
+  --sc09_only=True
 ```
 
 ## 🤖モデルの学習
@@ -62,7 +65,7 @@ rp_w_cfg.use_sg3_ff=True \
 rp_w_cfg.D_kernel_size=5 \
 rp_w_cfg.D_block_repeats=[3,3,3,3] \
 use_sc09_splits=True \
-sc09_train_csv=./splits/train.csv \
-sc09_valid_csv=./splits/valid.csv \
+sc09_train_csv=./splits/sc09-train.csv \
+sc09_valid_csv=./splits/sc09-valid.csv \
 rp_w_cfg.r1_gamma=0.1
 ```
