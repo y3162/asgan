@@ -2,4 +2,5 @@ asgan_env/
 data/
 splits/
 checkpoints/
+sample/
 **/__pycache__/

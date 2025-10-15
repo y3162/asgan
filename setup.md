@@ -9,6 +9,8 @@ $ pip install deepspeed
 $ conda install -c conda-forge libstdcxx-ng -y
 $ pip install "pip<24.1"
 $ pip install fairseq==0.12.2
+
+$ pip install pytorch-fid
 ```
 または
 ```
@@ -68,4 +70,19 @@ use_sc09_splits=True \
 sc09_train_csv=./splits/sc09-train.csv \
 sc09_valid_csv=./splits/sc09-valid.csv \
 rp_w_cfg.r1_gamma=0.1
+```
+
+# 🗒️モデルの評価
+```
+$ python evaluate_asgan.py \
+rp_w_cfg.z_dim=512 \
+rp_w_cfg.w_layers=1 \
+rp_w_cfg.c_dim=768 \
+rp_w_cfg.equalized_lr=True \
+rp_w_cfg.use_sg3_ff=True \
+rp_w_cfg.D_kernel_size=5 \
+rp_w_cfg.D_block_repeats=[3,3,3,3] \
+rp_w_cfg.r1_gamma=0.1 \
+--checkpoint-path=./checkpoints/ckpt_best_fad.pt \
+--sample-root-path=./sample/
 ```
